@@ -1,0 +1,61 @@
+<h1>Listing products</h1>
+vi /etc/users 
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><hr><%= image_tag @bar %></td>
+      <td><hr><center>Horizontal Bar chart</center><%= image_tag @bar_horizontal %></td>
+    </tr>
+    <tr>
+      <td><hr><%= image_tag @line %><hr></td>
+      <td><hr><%= image_tag @linexy %><hr></td>
+    </tr>
+    <tr>
+      <td><h2>Static data<h2><%= image_tag @line2 %></td>
+    </tr>
+    <tr>
+      <td><hr><%= image_tag @pie %><hr></td>
+      <td><hr><%= image_tag @pie_3d %><hr></td>
+    </tr>
+    <tr>
+      <td><%= image_tag @sparkline %></td>
+    </tr>
+    <tr>
+      <td><hr><%= image_tag @venn %><hr></td>
+      <td><hr><%= image_tag @scatter %><hr></td>
+      <td><hr><%= image_tag @google_meter %><hr></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.rate %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
